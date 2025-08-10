@@ -1,0 +1,211 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Premium Hospital Design System */
+
+@layer base {
+  :root {
+    /* Premium Color Palette */
+    --background: 0 0% 98%;
+    --foreground: 200 20% 8%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 200 20% 8%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 200 20% 8%;
+
+    /* Deep charcoal primary */
+    --primary: 200 20% 8%;
+    --primary-foreground: 0 0% 98%;
+
+    /* Muted gold accent */
+    --accent: 45 100% 70%;
+    --accent-foreground: 200 20% 8%;
+    
+    /* Warm secondary */
+    --secondary: 30 15% 95%;
+    --secondary-foreground: 200 20% 8%;
+
+    --muted: 30 15% 95%;
+    --muted-foreground: 200 10% 45%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 30 15% 90%;
+    --input: 30 15% 90%;
+    --ring: 45 100% 70%;
+
+    --radius: 0.75rem;
+    
+    /* Premium Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(200 25% 15%));
+    --gradient-accent: linear-gradient(135deg, hsl(var(--accent)), hsl(45 80% 65%));
+    --gradient-hero: linear-gradient(135deg, hsl(var(--primary) / 0.95), hsl(200 25% 15% / 0.9));
+    
+    /* Premium Shadows */
+    --shadow-elegant: 0 20px 40px -12px hsl(var(--primary) / 0.15);
+    --shadow-hover: 0 25px 50px -12px hsl(var(--primary) / 0.25);
+    --shadow-glow: 0 0 30px hsl(var(--accent) / 0.3);
+    
+    /* Animations */
+    --transition-smooth: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+    --transition-spring: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+    font-family: 'Inter', sans-serif;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+  }
+}
+
+@layer components {
+  /* Premium button variants */
+  .btn-hero {
+    @apply bg-gradient-to-r from-accent to-accent/90 text-accent-foreground px-8 py-4 rounded-xl font-semibold text-lg;
+    @apply hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)] transition-all duration-300;
+    @apply hover:scale-105 active:scale-95;
+  }
+  
+  .btn-outline-hero {
+    @apply border-2 border-accent text-accent bg-transparent px-8 py-4 rounded-xl font-semibold text-lg;
+    @apply hover:bg-accent hover:text-accent-foreground transition-all duration-300;
+    @apply hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)] hover:scale-105 active:scale-95;
+  }
+  
+  .btn-glass {
+    @apply bg-white/10 backdrop-blur-md border border-white/20 text-white px-6 py-3 rounded-lg;
+    @apply hover:bg-white/20 transition-all duration-300;
+  }
+  
+  /* Card variants */
+  .card-elegant {
+    @apply bg-card rounded-2xl p-8 shadow-[0_20px_40px_-12px_rgba(0,0,0,0.15)];
+    @apply hover:shadow-[0_25px_50px_-12px_rgba(0,0,0,0.25)] transition-all duration-300;
+    @apply hover:-translate-y-1;
+  }
+  
+  .card-glass {
+    @apply bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6;
+  }
+  
+  /* Text animations */
+  .text-shimmer {
+    @apply bg-gradient-to-r from-primary via-accent to-primary bg-[length:200%_100%] bg-clip-text text-transparent;
+    animation: shimmer 3s ease-in-out infinite;
+  }
+  
+  /* Hover effects */
+  .hover-lift {
+    @apply transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_25px_50px_-12px_rgba(0,0,0,0.25)];
+  }
+  
+  .hover-glow {
+    @apply transition-all duration-300 hover:shadow-[0_0_30px_rgba(255,215,0,0.3)];
+  }
+}
+
+@layer utilities {
+  .gradient-primary {
+    background: var(--gradient-primary);
+  }
+  
+  .gradient-accent {
+    background: var(--gradient-accent);
+  }
+  
+  .gradient-hero {
+    background: var(--gradient-hero);
+  }
+  
+  .transition-smooth {
+    transition: var(--transition-smooth);
+  }
+  
+  .transition-spring {
+    transition: var(--transition-spring);
+  }
+}
+
+@keyframes shimmer {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 20px rgba(255,215,0,0.4); }
+  50% { box-shadow: 0 0 40px rgba(255,215,0,0.8); }
+}
